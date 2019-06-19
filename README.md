@@ -8,7 +8,7 @@ https://github.com/tanren1234/docker_php_env
 
 ###### D:/docker_www 数据卷挂载的目录
 
-![file_catalog](https://github.com/tanren1234/docker_php_env/file_catalog.jpg "目录结构")
+![file_catalog](https://github.com/tanren1234/docker_php_env/blob/master/file_catalog.jpg "目录结构")
 
 ###### php
 >  docker build -t docker_php .
