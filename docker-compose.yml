@@ -1,0 +1,66 @@
+version: '2'
+services:
+  php7_yml:
+      build: ./php
+      container_name: php7_yml
+      ports:
+        - "9000:9000"
+        - "5200:5200"
+        - "8001:8001"
+        - "8002:8002"
+        - "8003:8003"
+        - "8004:8004"
+        - "8011:8011"
+      links:
+        - "mysql_yml:mysql"
+        - "redis_yml:redis"
+        # - "ssdb:ssdb"
+      volumes:
+        - "D:/docker_www/docker/www:/docker/www"
+        - "D:/docker_www/docker/log:/docker/log"
+      environment:
+        TZ: "Asia/Shanghai"
+      working_dir: "/docker"
+      restart: "no"
+      cap_add:
+        - sys_ptrace
+
+  nginx_yml:
+      build: ./nginx
+      container_name: nginx_yml
+      ports:
+        - "8085:80"
+      links:
+        - "php7_yml:php7"
+      volumes:
+        - "D:/docker_www/docker/www:/docker/www"
+        - "D:/docker_www/docker/log:/docker/log"
+        - "D:/docker_php_env/nginx/conf.d:/etc/nginx/conf.d"
+      working_dir: "/docker"
+      restart: "no"
+
+  redis_yml:
+    build: ./redis
+    container_name: redis_yml
+    ports:
+      - "63792:6379"
+    working_dir: "/root"
+    restart: "no"
+
+  # ssdb:
+  #   build: ./ssdb
+  #   container_name: ssdb
+  #   ports:
+  #     - "8888:8888"
+  #   working_dir: "/root"
+  #   restart: "no"
+    
+  mysql_yml:
+    container_name: mysql_yml
+    image: mysql:5.7
+    command: --default-authentication-plugin=mysql_native_password
+    restart: "no"
+    ports:
+      - "33062:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: xy123456
