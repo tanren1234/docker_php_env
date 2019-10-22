@@ -11,6 +11,7 @@ services:
         - "8003:8003"
         - "8004:8004"
         - "8011:8011"
+        - "3366:3366"
       links:
         - "mysql_yml:mysql"
         - "redis_yml:redis"
@@ -30,6 +31,10 @@ services:
       container_name: nginx_yml
       ports:
         - "8085:80"
+        - "8086:8086"
+        - "8087:8087"
+        - "8088:8088"
+        - "8089:8089"
       links:
         - "php7_yml:php7"
       volumes:
