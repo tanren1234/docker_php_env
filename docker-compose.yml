@@ -17,8 +17,8 @@ services:
         - "redis_yml:redis"
         # - "ssdb:ssdb"
       volumes:
-        - "D:/docker_www/docker/www:/docker/www"
-        - "D:/docker_www/docker/log:/docker/log"
+        - "~/Documents/docker/www:/docker/www"
+        - "~/Documents/docker/log:/docker/log"
       environment:
         TZ: "Asia/Shanghai"
       working_dir: "/docker"
@@ -38,9 +38,9 @@ services:
       links:
         - "php7_yml:php7"
       volumes:
-        - "D:/docker_www/docker/www:/docker/www"
-        - "D:/docker_www/docker/log:/docker/log"
-        - "D:/docker_php_env/nginx/conf.d:/etc/nginx/conf.d"
+        - "~/Documents/docker/www:/docker/www"
+        - "~/Documents/docker/log:/docker/log"
+        - "~/Documents/nginx/conf.d:/etc/nginx/conf.d"
       working_dir: "/docker"
       restart: "no"
 
