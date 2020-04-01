@@ -40,7 +40,7 @@ services:
       volumes:
         - "~/Documents/docker/www:/docker/www"
         - "~/Documents/docker/log:/docker/log"
-        - "~/Documents/nginx/conf.d:/etc/nginx/conf.d"
+        - "./nginx/conf.d:/etc/nginx/conf.d"
       working_dir: "/docker"
       restart: "no"
 

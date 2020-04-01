@@ -48,7 +48,7 @@ RUN cat /home/opcache.ini >> /usr/local/etc/php/conf.d/docker-php-ext-opcache.in
 
 # Swoole
 RUN apt-get install -y libpcre3 libpcre3-dev libssl-dev
-RUN pecl install swoole-4.3.1 && docker-php-ext-enable swoole
+RUN pecl install swoole-4.4.17 && docker-php-ext-enable swoole
 
 # Install composer
 COPY composer.phar /usr/local/bin/composer
