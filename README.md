@@ -92,3 +92,9 @@ $redis->auth('123456'); //密码验证
 $redis->select(2);
 $redis->set( "testKey" , "Hello Redis");
 ```
+
+
+### 修改Nginx conf文件重新构建容器
+```
+ docker-compose up -d --force-recreate
+```
